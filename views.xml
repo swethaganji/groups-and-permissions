@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <menuitem 
+    name="Employee"
+    groups="group_emp_permissions_employee1,group_emp_permissions_manager1"
+    id="emp_permissions.menu_root"/>
+
+
+  <menuitem 
+      name="Employee"
+      id="emp_permissions.menu_1"
+      parent="emp_permissions.menu_root"
+      action="emp_permissions.action_window"/>
+
+ <!--  <menuitem 
+    name="Employee" 
+    id="emp_permissions.menu_1_list"
+    
+    parent="emp_permissions.menu_1"
+    action="emp_permissions.action_window"/>
+ -->
+
+
+
+
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="emp_permissions list">
+      <field name="name">Emp_permissions list</field>
+      <field name="model">emp_permissions.emp_permissions</field>
+      <field name="arch" type="xml">
+
+        <form string="Employee">
+          <sheet>
+            <notebook>
+
+              <page string="employee details">
+                <group>
+
+                  <group string="Personal detials">
+                    <field name="name"/>
+                    <field name="birthday"/>
+                    <field name="marital"/>
+                  </group>
+
+                  <group string="other datials">
+                    <field name="mobile_phone"/>
+                    <field name="work_email"/>
+                    <field name="work_location"/>
+                  </group>
+
+                </group>
+              </page>
+
+            </notebook>
+          </sheet>
+
+
+        </form>
+
+      </field>
+    </record>
+
+ 
+
+
+
+
+    
+    <record model="ir.ui.view" id="emp_permissions tree">
+      <field name="name">Emp_permissions list</field>
+      <field name="model">emp_permissions.emp_permissions</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="work_location"/>
+        </tree>
+      </field>
+    </record> 
+ 
+ 
+    <!-- <record model="ir.ui.view" id="manager_permissions tree">
+      <field name="name">manager_permissions list</field>
+      <field name="model">emp_permissions.manager</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="work_location"/>
+        </tree>
+      </field>
+    </record> 
+ -->
+
+    <!-- actions opening views on models -->
+  
+    <record model="ir.actions.act_window" id="emp_permissions.action_window">
+      <field name="name">Employee window</field>
+      <field name="res_model">emp_permissions.emp_permissions</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+   <!--  <record model="ir.actions.act_window" id="emp_permissions.action_window1">
+      <field name="name">Manager window</field>
+      <field name="res_model">emp_permissions.emp_permissions</field>
+      <field name="view_mode">tree,form</field>
+
+    </record>
+ 
+
+   -->
+  
+
+    <!-- server action to the one above-->
+  
+   <!--  <record model="ir.actions.server" id="emp_permissions.action_server">
+      <field name="name">Emp_permissions server</field>
+      <field name="model_id" ref="model_emp_permissions_emp_permissions"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+   -->
+
+    <!-- Top menu item -->
+  
+    
+  
+    <!-- menu categories -->
+    
+   
+   <!--  <menuitem name="Menu 2" id="emp_permissions.menu_2" parent="emp_permissions.menu_root"/> -->
+    
+    <!-- actions -->
+    
+    
+   <!--  <menuitem name="Manager" 
+              id="emp_permissions.menu_2_list" parent="emp_permissions.menu_1" action="emp_permissions.action_window1"/> -->
+
+   <!--  <menuitem name="Server to list" id="emp_permissions" parent="emp_permissions.menu_2"
+              action="emp_permissions.action_server"/>
+   -->
+
+</odoo>
